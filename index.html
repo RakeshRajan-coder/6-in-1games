@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f3f5ef" />
+    <title>Sixfold | Game room</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#play" aria-label="Sixfold home">
+          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+          <span class="brand-name">sixfold<span class="brand-period">.</span></span>
+        </a>
+
+        <div class="side-label">GAME ROOM</div>
+        <nav class="primary-nav" aria-label="Main navigation">
+          <button class="nav-link is-active" type="button" data-route="play" aria-current="page">
+            <span class="nav-icon grid-icon" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+            <span>Play</span>
+            <span class="nav-count">06</span>
+          </button>
+          <button class="nav-link" type="button" data-route="saved">
+            <span class="nav-icon save-icon" aria-hidden="true"></span>
+            <span>Saved setups</span>
+            <span class="nav-count" id="savedCount">00</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-rule"></div>
+        <div class="profile-block">
+          <div class="profile-avatar" aria-hidden="true">P1</div>
+          <div class="profile-copy"><strong>Player One</strong><span>Local profile</span></div>
+          <span class="online-dot" aria-label="Offline-ready"></span>
+        </div>
+        <div class="sidebar-bottom">
+          <span class="sync-mark" aria-hidden="true"></span>
+          <span>Offline ready</span>
+          <span class="sync-status">SYNCED</span>
+        </div>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="mobile-menu" type="button" id="menuButton" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span><span></span>
+          </button>
+          <div class="breadcrumb"><span>GAME ROOM</span><b>/</b><span id="breadcrumbCurrent">PLAY</span></div>
+          <div class="topbar-right">
+            <span class="connection-label"><span class="online-dot"></span> LOCAL PROFILE</span>
+            <span class="topbar-divider"></span>
+            <div class="top-avatar" aria-label="Player One">P1</div>
+          </div>
+        </header>
+
+        <div class="page-content">
+          <section class="intro-row" id="playIntro">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> YOUR TABLE IS READY</p>
+              <h1>Choose your <em>game.</em></h1>
+              <p class="intro-copy">Pick a table and set the pace.</p>
+            </div>
+            <button type="button" class="primary-button" id="quickSetupButton"><span class="plus-icon" aria-hidden="true">+</span> Quick setup</button>
+          </section>
+
+          <section class="library-view" id="libraryView" aria-label="Game library">
+            <div class="section-toolbar">
+              <div class="section-heading"><h2>All games</h2><span class="result-count" id="resultCount">06</span></div>
+              <div class="toolbar-controls">
+                <div class="filter-group" role="group" aria-label="Filter games">
+                  <button type="button" class="filter-button is-selected" data-filter="all" aria-pressed="true">All <span>06</span></button>
+                  <button type="button" class="filter-button" data-filter="board" aria-pressed="false">Board</button>
+                  <button type="button" class="filter-button" data-filter="cue" aria-pressed="false">Cue</button>
+                </div>
+                <label class="search-box">
+                  <span class="search-icon" aria-hidden="true"></span>
+                  <input id="gameSearch" type="search" placeholder="Find a game" autocomplete="off" />
+                  <kbd>/</kbd>
+                </label>
+              </div>
+            </div>
+
+            <div class="game-grid" id="gameGrid">
+              <article class="game-card" data-category="board" data-name="chess" data-title="Chess" data-timer="Count-up clock">
+                <div class="game-art art-chess" aria-hidden="true">
+                  <div class="chess-board">
+                    <span>&#9820;</span><span>&#9822;</span><span>&#9821;</span><span>&#9819;</span>
+                    <span>&#9823;</span><span>&#9823;</span><span></span><span>&#9823;</span>
+                    <span></span><span>&#9817;</span><span>&#9817;</span><span></span>
+                    <span>&#9814;</span><span></span><span>&#9816;</span><span>&#9812;</span>
+                  </div>
+                  <span class="art-index">01</span>
+                  <span class="art-tag">CLASSIC</span>
+                </div>
+                <div class="game-info">
+                  <div class="game-title-row"><div><span class="game-category">STRATEGY</span><h3>Chess</h3></div><span class="player-count">2 PLAYERS</span></div>
+                  <div class="game-meta"><span class="meta-clock" aria-hidden="true"></span><span>Count-up clock</span><span class="meta-separator"></span><span>FIDE rules</span></div>
+                  <button class="card-action" type="button" data-setup="chess"><span>Set up match</span><span class="action-arrow" aria-hidden="true">&#8599;</span></button>
+                </div>
+              </article>
+
+              <article class="game-card" data-category="board" data-name="carrom" data-title="Carrom" data-timer="20 sec shot clock">
+                <div class="game-art art-carrom" aria-hidden="true">
+                  <div class="carrom-board"><span class="carrom-pocket pocket-one"></span><span class="carrom-pocket pocket-two"></span><span class="carrom-pocket pocket-three"></span><span class="carrom-pocket pocket-four"></span><span class="carrom-center"></span><i class="disc disc-a"></i><i class="disc disc-b"></i><i class="disc disc-c"></i><i class="disc disc-q"></i></div>
+                  <span class="art-index">02</span>
+                  <span class="art-tag">PRECISION</span>
+                </div>
+                <div class="game-info">
+                  <div class="game-title-row"><div><span class="game-category">TABLE</span><h3>Carrom</h3></div><span class="player-count">2 PLAYERS</span></div>
+                  <div class="game-meta"><span class="meta-clock" aria-hidden="true"></span><span>20 sec shot clock</span><span class="meta-separator"></span><span>ICF scoring</span></div>
+                  <button class="card-action" type="button" data-setup="carrom"><span>Set up match</span><span class="action-arrow" aria-hidden="true">&#8599;</span></button>
+                </div>
+              </article>
+
+              <article class="game-card" data-category="board" data-name="ludo" data-title="Ludo" data-timer="15 sec shot clock">
+                <div class="game-art art-ludo" aria-hidden="true">
+                  <div class="ludo-board"><span class="ludo-home home-red"><i></i></span><span class="ludo-home home-blue"><i></i></span><span class="ludo-home home-green"><i></i></span><span class="ludo-home home-yellow"><i></i></span><span class="ludo-center"></span></div>
+                  <span class="art-index">03</span>
+                  <span class="art-tag">RACE</span>
+                </div>
+                <div class="game-info">
+                  <div class="game-title-row"><div><span class="game-category">BOARD</span><h3>Ludo</h3></div><span class="player-count">2-4 PLAYERS</span></div>
+                  <div class="game-meta"><span class="meta-clock" aria-hidden="true"></span><span>15 sec shot clock</span><span class="meta-separator"></span><span>Safe zones</span></div>
+                  <button class="card-action" type="button" data-setup="ludo"><span>Set up match</span><span class="action-arrow" aria-hidden="true">&#8599;</span></button>
+                </div>
+              </article>
+
+              <article class="game-card" data-category="board" data-name="snakes ladders" data-title="Snakes &amp; Ladders" data-timer="10 sec auto-roll">
+                <div class="game-art art-snakes" aria-hidden="true">
+                  <div class="snakes-board"><span class="snake-path snake-path-one"></span><span class="snake-path snake-path-two"></span><span class="ladder-rung rung-one"></span><span class="ladder-rung rung-two"></span><span class="ladder-rung rung-three"></span><span class="ladder-rail rail-one"></span><span class="ladder-rail rail-two"></span><div class="snake-cells"></div></div>
+                  <span class="art-index">04</span>
+                  <span class="art-tag">LUCK &amp; CLIMB</span>
+                </div>
+                <div class="game-info">
+                  <div class="game-title-row"><div><span class="game-category">BOARD</span><h3>Snakes &amp; Ladders</h3></div><span class="player-count">2-4 PLAYERS</span></div>
+                  <div class="game-meta"><span class="meta-clock" aria-hidden="true"></span><span>10 sec auto-roll</span><span class="meta-separator"></span><span>Move scoring</span></div>
+                  <button class="card-action" type="button" data-setup="snakes"><span>Set up match</span><span class="action-arrow" aria-hidden="true">&#8599;</span></button>
+                </div>
+              </article>
+
+              <article class="game-card" data-category="board" data-name="business board" data-title="Business Board" data-timer="30 sec turns / 15 sec auctions">
+                <div class="game-art art-business" aria-hidden="true">
+                  <div class="business-board"><span class="business-square square-a"></span><span class="business-square square-b"></span><span class="business-square square-c"></span><span class="business-square square-d"></span><span class="business-square square-e"></span><span class="business-square square-f"></span><span class="business-square square-g"></span><span class="business-square square-h"></span><div class="business-center"><span>THE</span><strong>MARKET</strong><i></i></div></div>
+                  <span class="art-index">05</span>
+                  <span class="art-tag">PROPERTY</span>
+                </div>
+                <div class="game-info">
+                  <div class="game-title-row"><div><span class="game-category">ECONOMY</span><h3>Business Board</h3></div><span class="player-count">2-6 PLAYERS</span></div>
+                  <div class="game-meta"><span class="meta-clock" aria-hidden="true"></span><span>30 sec turns</span><span class="meta-separator"></span><span>15 sec auctions</span></div>
+                  <button class="card-action" type="button" data-setup="business"><span>Set up match</span><span class="action-arrow" aria-hidden="true">&#8599;</span></button>
+                </div>
+              </article>
+
+              <article class="game-card cue-card" data-category="cue" data-name="pool snooker cue sports" data-title="Cue Sports" data-timer="30 sec shot clock">
+                <div class="game-art art-cue" aria-hidden="true">
+                  <div class="pool-table"><span class="table-pocket tp-one"></span><span class="table-pocket tp-two"></span><span class="table-pocket tp-three"></span><span class="table-pocket tp-four"></span><span class="table-pocket tp-five"></span><span class="table-pocket tp-six"></span><span class="table-line"></span><i class="pool-ball ball-white"></i><i class="pool-ball ball-red"></i><i class="pool-ball ball-yellow"></i><i class="pool-ball ball-blue"></i><i class="pool-ball ball-eight"></i><span class="cue-stick"></span></div>
+                  <span class="art-index">06</span>
+                  <span class="art-tag">CUE SPORTS</span>
+                </div>
+                <div class="game-info">
+                  <div class="game-title-row"><div><span class="game-category">TABLE</span><h3>Cue Sports</h3></div><span class="player-count">2 PLAYERS</span></div>
+                  <div class="variant-switch" role="group" aria-label="Cue sports ruleset">
+                    <button type="button" class="variant-button is-selected" data-variant="pool" aria-pressed="true">8-ball pool</button>
+                    <button type="button" class="variant-button" data-variant="snooker" aria-pressed="false">Snooker</button>
+                  </div>
+                  <div class="game-meta cue-meta"><span class="meta-clock" aria-hidden="true"></span><span>30 sec shot clock</span><span class="meta-separator"></span><span class="cue-rule-label">Solids &amp; stripes</span></div>
+                  <button class="card-action" type="button" data-setup="cue"><span>Set up match</span><span class="action-arrow" aria-hidden="true">&#8599;</span></button>
+                </div>
+              </article>
+            </div>
+
+            <div class="empty-state" id="emptyState" hidden>
+              <span class="empty-mark" aria-hidden="true">?</span>
+              <h3>No tables found</h3>
+              <p>Try another name or switch the game filter.</p>
+              <button type="button" class="text-button" id="clearSearch">Clear search</button>
+            </div>
+          </section>
+
+          <section class="saved-view" id="savedView" hidden>
+            <div class="saved-heading"><div><p class="eyebrow"><span class="eyebrow-line"></span> ON THIS DEVICE</p><h1>Saved <em>setups.</em></h1></div><span class="saved-total" id="savedTotal">0 SAVED</span></div>
+            <div class="saved-list" id="savedList"></div>
+            <div class="empty-state saved-empty" id="savedEmpty">
+              <span class="empty-mark" aria-hidden="true">+</span>
+              <h3>Your saved setups will live here</h3>
+              <p>Choose a table and save its match settings to this device.</p>
+              <button type="button" class="text-button" id="browseGames">Browse games</button>
+            </div>
+          </section>
+
+          <footer class="page-footer"><span> SIXFOLD <b> / </b> GAME ROOM</span><span>LOCAL PROFILE <i></i></span></footer>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="setup-dialog" id="setupDialog" aria-labelledby="dialogTitle">
+      <form id="setupForm">
+        <div class="dialog-topline"><span class="dialog-kicker">MATCH SETUP <b id="setupIndex">01</b></span><button class="close-dialog" type="button" id="closeDialog" aria-label="Close setup"><span></span><span></span></button></div>
+        <div class="dialog-heading"><p class="eyebrow"><span class="eyebrow-line"></span> YOUR NEXT TABLE</p><h2 id="dialogTitle">Chess</h2><p id="dialogSubtitle">Set your match preferences.</p></div>
+        <div class="dialog-fields">
+          <fieldset class="mode-field">
+            <legend>Match type</legend>
+            <div class="mode-options">
+              <label class="mode-option"><input type="radio" name="matchMode" value="offline" /><span class="mode-option-icon offline-icon" aria-hidden="true"></span><span><strong>Offline</strong><small>Pass &amp; play</small></span></label>
+              <label class="mode-option"><input type="radio" name="matchMode" value="online" /><span class="mode-option-icon online-icon" aria-hidden="true"></span><span><strong>Online</strong><small>Multiplayer</small></span></label>
+            </div>
+            <p class="mode-description" id="modeDescription">Play on this device. Your profile and setups stay local.</p>
+          </fieldset>
+          <div class="settings-row">
+            <label class="select-field" for="playerSelect"><span>Players</span><select id="playerSelect" name="players"></select></label>
+            <div class="clock-field"><span>Turn timer</span><strong id="clockValue">Count-up clock</strong></div>
+          </div>
+          <div class="cue-ruleset-field" id="cueRulesetField" hidden>
+            <span>Ruleset</span>
+            <div class="dialog-variant-switch" role="group" aria-label="Choose cue sports ruleset">
+              <button type="button" class="dialog-variant is-selected" data-dialog-variant="pool" aria-pressed="true">8-ball pool</button>
+              <button type="button" class="dialog-variant" data-dialog-variant="snooker" aria-pressed="false">Snooker</button>
+            </div>
+          </div>
+          <div class="setup-note"><span class="note-mark" aria-hidden="true">i</span><p id="setupNote">Move clock and scoring rules follow the selected game.</p></div>
+        </div>
+        <div class="dialog-actions"><button class="cancel-button" type="button" id="cancelDialog">Cancel</button><button class="primary-button save-button" type="submit">Save setup <span aria-hidden="true">&#8599;</span></button></div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
